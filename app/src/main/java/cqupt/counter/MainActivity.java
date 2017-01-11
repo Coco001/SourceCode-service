@@ -39,9 +39,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mStop.setOnClickListener(this);
         mStart.setEnabled(true);
         mStop.setEnabled(false);
-
+        //使用服务的类名创建一个intent
         Intent intent = new Intent(MainActivity.this, CounterService.class);
-
+        //绑定服务，当服务绑定成功，mServiceConnection的成员函数onServiceConnected()就会被调用，
+        //通过该函数，当前组件就可以访问服务组件的接口了。
         bindService(intent, mServiceConnection, Context.BIND_AUTO_CREATE);
     }
 
